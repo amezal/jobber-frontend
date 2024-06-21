@@ -1,27 +1,27 @@
 import { Page } from "@jobber/components/Page";
 import { Spinner } from "@jobber/components/Spinner";
 import { Text } from "@jobber/components/Text";
-import ClientsTable from "components/ClientsTable";
+import JobsTable from "components/JobsTable/JobsTable";
 import EmptyStateCard from "components/EmptyStateCard";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getClients } from "services";
+import { getJobs } from "services";
 
 function Home() {
-  const [clients, setClients] = useState([]);
-  const [isFetchingClients, setIsFetchingClients] = useState(false);
+  const [jobs, setJobs] = useState([]);
+  const [isFetchingJobs, setIsFetchingJobs] = useState(false);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
       try {
-        setIsFetchingClients(true);
-        const { data } = await getClients();
-        setClients(data.clients);
-        setIsFetchingClients(false);
+        setIsFetchingJobs(true);
+        const { data } = await getJobs();
+        setJobs(data.jobs);
+        setIsFetchingJobs(false);
       } catch (error) {
-        setIsFetchingClients(false);
+        setIsFetchingJobs(false);
         navigate("/auth");
       }
     })();
@@ -39,15 +39,15 @@ function Home() {
         </Text>
         <br />
         <Text size="large">
-          Below you can see a list of the Clients in the connected Jobber
-          account . Check out to see the GraphQL query that was used to retrieve
-          this Client info.
+          Below you can see a list of the Jobs in the connected Jobber account .
+          Check out to see the GraphQL query that was used to retrieve this
+          Client info.
         </Text>
       </div>
-      {isFetchingClients ? (
+      {isFetchingJobs ? (
         <Spinner size="small" />
-      ) : clients.length > 0 ? (
-        <ClientsTable clients={clients} />
+      ) : jobs.length > 0 ? (
+        <JobsTable jobs={jobs} />
       ) : (
         <EmptyStateCard />
       )}

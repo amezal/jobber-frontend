@@ -14,6 +14,10 @@ export function getClients() {
   return api.get("/clients");
 }
 
+export function getJobs() {
+  return api.get("/jobs");
+}
+
 export function logout() {
   return api.get("/logout");
 }
