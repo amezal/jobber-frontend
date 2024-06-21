@@ -15,6 +15,22 @@ export const handlers = [
       }),
     );
   }),
+  rest.get("http://localhost:4000/jobs", (req, res, ctx) => {
+    return res(
+      ctx.json({
+        jobs: [
+          {
+            id: "Z2lkOi8vSm9iYmVyL0NsaWVudC80Njg5NTI0OQ==",
+            title: "Paint John Doe's House",
+          },
+          {
+            id: "Z2lkOi8vSm9iYmVyL0NsaWVudC81MzcxMTA0Mw==",
+            title: "Paint Jane Doe's House",
+          },
+        ],
+      }),
+    );
+  }),
   rest.get("http://localhost:4000/logout", (req, res, ctx) => {
     return res(ctx.status(200));
   }),

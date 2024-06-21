@@ -10,27 +10,31 @@ describe("Home page", () => {
     expect(
       screen.getByText(/CONGRATS ON BUILDING A JOBBER APP/i),
     ).toBeVisible();
-    expect(await screen.findByText(/Bulma/i)).toBeInTheDocument();
+    expect(
+      await screen.findByText(/Paint Jane Doe's House/i),
+    ).toBeInTheDocument();
   });
 
-  test("Home page shows client's table when clients returned from the api", async () => {
+  test("Home page shows job's table when jobs returned from the api", async () => {
     render(<Home />);
-    expect(await screen.findByText(/Bulma/i)).toBeInTheDocument();
+    expect(
+      await screen.findByText(/Paint Jane Doe's House/i),
+    ).toBeInTheDocument();
   });
 
-  test("Home page shows empty state card when there's no clients returned from the api", async () => {
+  test("Home page shows empty state card when there's no jobs returned from the api", async () => {
     server.use(
-      rest.get("http://localhost:4000/clients", (req, res, ctx) => {
-        return res(ctx.json({ clients: [] }));
+      rest.get("http://localhost:4000/jobs", (req, res, ctx) => {
+        return res(ctx.json({ jobs: [] }));
       }),
     );
     render(<Home />);
     expect(await screen.findByTestId("empty-card-state")).toBeInTheDocument();
   });
 
-  test("Redirects to /auth if clients api call fails", async () => {
+  test("Redirects to /auth if jobs api call fails", async () => {
     server.use(
-      rest.get("http://localhost:4000/clients", (req, res, ctx) => {
+      rest.get("http://localhost:4000/jobs", (req, res, ctx) => {
         return res(ctx.status(403));
       }),
     );

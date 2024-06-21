@@ -10,7 +10,9 @@ test("render home route when authenticated", async () => {
     router: { initialEntries: [{ pathname: "/home" }] },
   });
 
-  expect(await screen.findByText(/Bulma/i)).toBeInTheDocument();
+  expect(
+    await screen.findByText(/Paint Jane Doe's House/i),
+  ).toBeInTheDocument();
 });
 
 test("render auth routes when not-authenticated", async () => {

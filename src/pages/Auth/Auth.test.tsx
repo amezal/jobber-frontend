@@ -17,5 +17,5 @@ test("Redirects to /home authentication is sucessful", async () => {
     await screen.findByText(/CONGRATS ON BUILDING A JOBBER APP/i),
   ).toBeInTheDocument();
 
-  expect(await screen.findByText("Bulma")).toBeInTheDocument();
+  expect(await screen.findByText("Paint Jane Doe's House")).toBeInTheDocument();
 });
