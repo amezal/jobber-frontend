@@ -1,4 +1,5 @@
 import { Client } from "./client";
+import { TimeSheetEntry } from "./timesheetEntry";
 
 export type Job = {
   id: string;
@@ -7,4 +8,5 @@ export type Job = {
   startAt: string;
   endAt: string;
   client: Partial<Client>;
+  timeSheetEntries?: [TimeSheetEntry];
 };
