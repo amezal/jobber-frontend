@@ -1,9 +1,10 @@
 import { Client } from "./client";
 
 export type Job = {
-  id: number;
+  id: string;
+  jobNumber: number;
   title: string;
   startAt: string;
   endAt: string;
-  client: Client;
+  client: Partial<Client>;
 };
