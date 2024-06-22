@@ -20,12 +20,14 @@ export const handlers = [
       ctx.json({
         jobs: [
           {
-            id: "Z2lkOi8vSm9iYmVyL0NsaWVudC80Njg5NTI0OQ==",
-            title: "Paint John Doe's House",
-          },
-          {
             id: "Z2lkOi8vSm9iYmVyL0NsaWVudC81MzcxMTA0Mw==",
             title: "Paint Jane Doe's House",
+            jobNumber: 1,
+            startAt: "2024-06-19-T06:00:00Z",
+            endAt: "2024-06-19-T06:00:00Z",
+            client: {
+              name: "Jane Doe",
+            },
           },
         ],
       }),
