@@ -3,6 +3,7 @@ import AppFrame from "components/AppFrame";
 import { useUserContext } from "contexts";
 import Auth from "pages/Auth";
 import Home from "pages/Home/Home";
+import Job from "pages/Jobs/Job";
 import {
   Navigate,
   Outlet,
@@ -17,6 +18,7 @@ const Routes = () => {
         <Route element={<AppFrame logo={appLogo} />}>
           <Route index element={<Navigate to="home" />} />
           <Route path="home" element={<Home />} />
+          <Route path="jobs/:id" element={<Job />} />
         </Route>
       </Route>
       <Route path="auth" element={<Auth />} />

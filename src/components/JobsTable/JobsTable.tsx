@@ -1,6 +1,7 @@
 import { Body, Cell, Header, Row, Table } from "@jobber/components/Table";
 import FormatDate from "./FormatDate";
 import { Job } from "types";
+import { Link } from "react-router-dom";
 
 type Props = {
   jobs: Array<Job>;
@@ -20,7 +21,9 @@ const JobsTable = ({ jobs }: Props) => {
         {jobs.map(({ id, jobNumber, title, client, startAt, endAt }) => (
           <Row key={id}>
             <Cell>{jobNumber}</Cell>
-            <Cell>{title}</Cell>
+            <Cell>
+              <Link to={`/jobs/${id}`}>{title}</Link>
+            </Cell>
             <Cell>{client.name}</Cell>
             <Cell>
               <FormatDate date={startAt} />
