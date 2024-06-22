@@ -18,6 +18,10 @@ export function getJobs() {
   return api.get("/jobs");
 }
 
+export function getJob(id: string) {
+  return api.get(`/jobs/${id}`);
+}
+
 export function logout() {
   return api.get("/logout");
 }
