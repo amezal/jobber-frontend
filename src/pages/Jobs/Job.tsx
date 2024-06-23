@@ -9,6 +9,8 @@ import { Divider } from "@jobber/components/Divider";
 import EmptyStateCard from "components/EmptyStateCard";
 import { getJob } from "services";
 import { Job } from "types";
+import { Body, Cell, Header, Row, Table } from "@jobber/components/Table";
+import secondsToHm from "utils/secondsToHm";
 
 function Home() {
   const [job, setJob] = useState<Job | null>(null);
@@ -46,6 +48,32 @@ function Home() {
               ]}
             />
           </div>
+          {job.timeSheetEntries!.length > 0 && (
+            <>
+              <Divider />
+              <h1>Timesheet</h1>
+              <Table>
+                <Header>
+                  <Cell>Worker</Cell>
+                  <Cell>Start</Cell>
+                  <Cell>End</Cell>
+                  <Cell>Total (hours)</Cell>
+                </Header>
+                <Body>
+                  {job.timeSheetEntries!.map(
+                    ({ startAt, endAt, finalDuration, user }, i) => (
+                      <Row key={i}>
+                        <Cell>{user.name.full}</Cell>
+                        <Cell>{new Date(startAt).toLocaleString()}</Cell>
+                        <Cell>{new Date(endAt).toLocaleString()}</Cell>
+                        <Cell>{secondsToHm(finalDuration)}</Cell>
+                      </Row>
+                    ),
+                  )}
+                </Body>
+              </Table>
+            </>
+          )}
         </div>
       ) : (
         <EmptyStateCard />
