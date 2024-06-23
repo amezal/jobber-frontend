@@ -1,0 +1,42 @@
+h1:has(> input) {
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.input,
+.select,
+.textarea {
+  display: inline-block;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  font-weight: inherit;
+  color: inherit;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-border-sizing: border-box;
+  -o-border-sizing: border-box;
+  -ms-border-sizing: border-box;
+  width: 100%;
+  max-width: inherit;
+  resize: none;
+}
+
+.input:disabled,
+.select:disabled,
+.textarea:disabled {
+  opacity: inherit;
+  background-color: inherit;
+  border-color: transparent;
+  box-sizing: border-box;
+  appearance: none;
+  overflow: hidden;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.select {
+  padding-left: 5px;
+}
