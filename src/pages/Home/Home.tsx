@@ -27,7 +27,7 @@ function Home() {
     })();
   }, []);
   return (
-    <Page title="👋  Congrats on building a Jobber app" width="fill">
+    <Page title="👋  Jobber demo app" width="fill">
       <div style={{ maxWidth: "854px" }}>
         <Text size="large">
           To customize it and turn it into something you can call your own,
