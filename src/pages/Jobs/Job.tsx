@@ -9,7 +9,14 @@ import { Divider } from "@jobber/components/Divider";
 import EmptyStateCard from "components/EmptyStateCard";
 import { getJob } from "services";
 import { Job } from "types";
-import { Body, Cell, Header, Row, Table } from "@jobber/components/Table";
+import {
+  Body,
+  Cell,
+  Footer,
+  Header,
+  Row,
+  Table,
+} from "@jobber/components/Table";
 import secondsToHm from "utils/secondsToHm";
 
 function Home() {
@@ -71,6 +78,19 @@ function Home() {
                     ),
                   )}
                 </Body>
+                <Footer>
+                  <Cell />
+                  <Cell />
+                  <Cell>Total</Cell>
+                  <Cell>
+                    {secondsToHm(
+                      job.timeSheetEntries!.reduce(
+                        (acc, val) => acc + val.finalDuration,
+                        0,
+                      ),
+                    )}
+                  </Cell>
+                </Footer>
               </Table>
             </>
           )}
