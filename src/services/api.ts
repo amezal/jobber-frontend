@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Job } from "types";
 import { User } from "types/user";
 
 const api = axios.create({
@@ -20,6 +21,10 @@ export function getJobs() {
 
 export function getJob(id: string) {
   return api.get(`/jobs/${id}`);
+}
+
+export function patchJob(job: Job) {
+  return api.patch(`/jobs/${job.id}`, job);
 }
 
 export function logout() {
