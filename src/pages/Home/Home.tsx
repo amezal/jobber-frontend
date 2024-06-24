@@ -30,18 +30,20 @@ function Home() {
     <Page title="👋  Jobber demo app" width="fill">
       <div style={{ maxWidth: "854px" }}>
         <Text size="large">
-          To customize it and turn it into something you can call your own,
-          explore{" "}
-          <a href="https://atlantis.getjobber.com/">Atlantis design system</a>,
-          and our{" "}
-          <a href="https://developer.getjobber.com/docs/">GraphQL API docs</a>.
-          Turn that dream into a reality.
+          This is a demo app made by&nbsp;
+          <a href="https://amezal.com"> Armando Meza </a>
+          leveraging Jobber's API.
         </Text>
         <br />
         <Text size="large">
-          Below you can see a list of the Jobs in the connected Jobber account .
-          Check out to see the GraphQL query that was used to retrieve this
-          Client info.
+          Made with React, based on the&nbsp;
+          <a href="https://github.com/GetJobber/Jobber-AppTemplate-React">
+            Jobber's React App Template
+          </a>
+          &nbsp;with a Ruby on Rails backend based on&nbsp;
+          <a href="https://github.com/GetJobber/Jobber-AppTemplate-RailsAPI/tree/main?tab=readme-ov-file">
+            Jobber's Rails API Template{" "}
+          </a>
         </Text>
       </div>
       {isFetchingJobs ? (
