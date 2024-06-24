@@ -10,23 +10,18 @@ jest.mock("helpers", () => ({
   redirectToJobber: jest.fn(),
 }));
 
-test("renders app logo", () => {
-  render(<AppFrame logo={appLogo} />);
-  expect(screen.getByAltText("app logo")).toBeInTheDocument();
-});
-
 test("renders jobber logo", () => {
-  render(<AppFrame logo={appLogo} />);
+  render(<AppFrame />);
   expect(screen.getByAltText("jobber logo")).toBeInTheDocument();
 });
 
 test("renders back to jobber text", () => {
-  render(<AppFrame logo={appLogo} />);
+  render(<AppFrame />);
   expect(screen.getByText(/back to jobber/i)).toBeInTheDocument();
 });
 
 test("renders company name", async () => {
-  render(<AppFrame logo={appLogo} />, {
+  render(<AppFrame />, {
     user: { accountName: "Capsule Corp." },
   });
 
@@ -35,7 +30,7 @@ test("renders company name", async () => {
 });
 
 test("renders settings button", async () => {
-  render(<AppFrame logo={appLogo} />, {
+  render(<AppFrame />, {
     user: { accountName: "Capsule Corp." },
   });
 
@@ -44,7 +39,7 @@ test("renders settings button", async () => {
 });
 
 test("shows logout option when settings button", async () => {
-  render(<AppFrame logo={appLogo} />, {
+  render(<AppFrame />, {
     user: { accountName: "Capsule Corp." },
   });
 
@@ -56,7 +51,7 @@ test("shows logout option when settings button", async () => {
 });
 
 test("perform log out when log out button is clicked", async () => {
-  render(<AppFrame logo={appLogo} />, {
+  render(<AppFrame />, {
     user: { accountName: "Capsule Corp." },
   });
 

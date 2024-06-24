@@ -15,7 +15,7 @@ const Routes = () => {
   return (
     <ReactRouterRoutes>
       <Route element={<ProtectedRoutes />}>
-        <Route element={<AppFrame logo={appLogo} />}>
+        <Route element={<AppFrame />}>
           <Route index element={<Navigate to="home" />} />
           <Route path="home" element={<Home />} />
           <Route path="jobs/:id" element={<Job />} />
