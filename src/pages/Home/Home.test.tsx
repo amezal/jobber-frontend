@@ -7,9 +7,7 @@ import Home from "./Home";
 describe("Home page", () => {
   test("Home page shows congratulating message", async () => {
     render(<Home />);
-    expect(
-      screen.getByText(/CONGRATS ON BUILDING A JOBBER APP/i),
-    ).toBeVisible();
+    expect(screen.getByText(/JOBBER DEMO APP/i)).toBeVisible();
     expect(
       await screen.findByText(/Paint Jane Doe's House/i),
     ).toBeInTheDocument();

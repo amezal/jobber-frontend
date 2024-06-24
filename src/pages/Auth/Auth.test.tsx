@@ -13,9 +13,7 @@ test("Redirects to /home authentication is sucessful", async () => {
     },
   });
 
-  expect(
-    await screen.findByText(/CONGRATS ON BUILDING A JOBBER APP/i),
-  ).toBeInTheDocument();
+  expect(await screen.findByText(/JOBBER DEMO APP/i)).toBeInTheDocument();
 
   expect(await screen.findByText("Paint Jane Doe's House")).toBeInTheDocument();
 });
